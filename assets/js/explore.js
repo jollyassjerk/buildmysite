@@ -1,3 +1,5 @@
+import { DATA_BASE, siteHref } from './site.js';
+
 const PAGE_SIZE = 24;
 
 let allEntries = [];

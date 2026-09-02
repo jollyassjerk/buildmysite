@@ -1,3 +1,5 @@
+import { DATA_BASE, escapeHtml, siteHref } from './site.js';
+
 async function initMap() {
   const mapEl = document.getElementById('map');
   if (!mapEl) return;
@@ -14,7 +16,6 @@ async function initMap() {
     maxZoom: 18,
   }).addTo(map);
 
-  // Fix blank map if layout wasn't ready at init time
   setTimeout(() => map.invalidateSize(), 100);
 
   try {
@@ -41,14 +42,6 @@ async function initMap() {
   } catch {
     // Map still renders without pins
   }
-}
-
-function escapeHtml(str) {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
 }
 
 initMap();

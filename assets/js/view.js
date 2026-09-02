@@ -1,14 +1,8 @@
+import { DATA_BASE, escapeHtml } from './site.js';
+
 function getSlug() {
   const params = new URLSearchParams(window.location.search);
   return params.get('c');
-}
-
-function escapeHtml(str) {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
 }
 
 async function initView() {

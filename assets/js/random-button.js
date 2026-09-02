@@ -1,8 +1,4 @@
-async function fetchIndex() {
-  const res = await fetch(`${DATA_BASE}/index.json`);
-  if (!res.ok) throw new Error('Failed to load index.json');
-  return res.json();
-}
+import { fetchIndex, siteHref } from './site.js';
 
 function ensureRandomButton() {
   if (document.getElementById('random-page-btn')) return;

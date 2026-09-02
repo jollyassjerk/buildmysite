@@ -1,11 +1,24 @@
-// Resolve paths correctly on GitHub Pages project sites (e.g. /buildmysite/)
-window.sitePath = function sitePath(relativePath) {
+export function sitePath(relativePath) {
   return new URL(relativePath, document.baseURI).pathname;
-};
+}
 
-window.siteHref = function siteHref(relativePath) {
+export function siteHref(relativePath) {
   const url = new URL(relativePath, document.baseURI);
   return url.pathname + url.search + url.hash;
-};
+}
 
-window.DATA_BASE = window.sitePath('dist');
+export const DATA_BASE = sitePath('dist');
+
+export async function fetchIndex() {
+  const res = await fetch(`${DATA_BASE}/index.json`);
+  if (!res.ok) throw new Error('Failed to load index.json');
+  return res.json();
+}
+
+export function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}

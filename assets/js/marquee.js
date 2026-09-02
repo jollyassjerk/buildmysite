@@ -1,9 +1,13 @@
+import { fetchIndex } from './site.js';
+
 const GOATCOUNTER_TOTAL = 'https://terpinedream.goatcounter.com/counter/TOTAL.json';
 
-async function fetchIndex() {
-  const res = await fetch(`${DATA_BASE}/index.json`);
-  if (!res.ok) return [];
-  return res.json();
+async function fetchIndexSafe() {
+  try {
+    return await fetchIndex();
+  } catch {
+    return [];
+  }
 }
 
 async function getVisitorCount() {
@@ -21,7 +25,7 @@ async function initMarquee() {
   const el = document.getElementById('marquee-content');
   if (!el) return;
 
-  const [index, visitors] = await Promise.all([fetchIndex(), getVisitorCount()]);
+  const [index, visitors] = await Promise.all([fetchIndexSafe(), getVisitorCount()]);
   const count = index.length;
   const last = index.length > 0
     ? index.reduce((a, b) => (a.addedAt > b.addedAt ? a : b))
