@@ -7,7 +7,7 @@ function ensureRandomButton() {
     btn.id = 'random-page-btn';
     btn.type = 'button';
     btn.className = 'floating-button';
-    btn.textContent = 'Random Page!!!';
+    btn.textContent = 'Random Page';
     document.body.appendChild(btn);
   }
 

@@ -104,9 +104,13 @@ body.retro-site a:hover {
 
 .retro-hr {
   border: none;
-  height: 4px;
-  background: linear-gradient(to right, #6633cc, #ff66ff, #66ffff, #ff66ff, #6633cc);
+  border-top: 3px double #9966cc;
   margin: 1rem 0;
+}
+
+.retro-construction-wrap {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .retro-main {
@@ -120,16 +124,6 @@ body.retro-site a:hover {
   text-align: center;
 }
 
-.retro-panel-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  text-align: left;
-}
-
 .retro-panel-title {
   font-family: "Times New Roman", Times, serif;
   font-size: 1.35rem;
@@ -138,7 +132,7 @@ body.retro-site a:hover {
 }
 
 .retro-panel-desc {
-  margin: 0;
+  margin: 0 0 1rem;
   font-size: 0.9rem;
   color: #bbaadd;
 }
@@ -154,9 +148,13 @@ body.retro-site a:hover {
   color: #ccb8ff;
 }
 
-.retro-inline-gif {
-  vertical-align: middle;
-  margin: 0 0.25rem;
+.retro-footer-links {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+}
+
+.retro-footer-links a {
+  font-weight: bold;
 }
 
 .retro-footer {
@@ -388,11 +386,6 @@ body:not(.view-page):not(.retro-site) > .floating-button {
 @media (max-width: 520px) {
   .retro-title {
     font-size: 1.35rem;
-  }
-
-  .retro-panel-head {
-    flex-direction: column;
-    text-align: center;
   }
 
   body.retro-site #map {
