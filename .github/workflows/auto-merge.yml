@@ -3,6 +3,10 @@ name: Auto Merge
 on:
   pull_request_target:
     types: [opened, synchronize, reopened, ready_for_review]
+  check_suite:
+    types: [completed]
+  pull_request_review:
+    types: [submitted]
 
 permissions:
   contents: write
@@ -20,5 +24,12 @@ jobs:
         uses: pascalgn/automerge-action@v0.16.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Default is "automerge" — empty string merges all passing PRs
+          MERGE_LABELS: ""
+          UPDATE_LABELS: ""
           MERGE_METHOD: squash
           MERGE_DELETE_BRANCH: true
+          MERGE_FORKS: "true"
+          MERGE_REQUIRED_APPROVALS: "0"
+          MERGE_RETRIES: "6"
+          MERGE_RETRY_SLEEP: "10000"
