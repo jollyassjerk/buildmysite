@@ -1,51 +1,78 @@
 # How to Contribute
 
-Anyone can add their own page to this site — no coding experience needed!
+**Live site:** [pushthis.github.io/buildmysite](https://pushthis.github.io/buildmysite)
 
-## Quick steps
+Anyone can add their own page — no coding experience needed. Full overview is in the [README](README.md); this is the quick reference.
 
-1. **Fork** this repository on GitHub (click the Fork button).
-2. **Create a folder** inside `contributions/` named after you, using only lowercase letters, numbers, and hyphens. Example: `contributions/cool-cat/`
-3. **Add exactly two files** inside your folder:
-   - `page.html` — your page content
-   - `meta.json` — your info (see below)
-4. **Open a Pull Request** back to this repo.
-5. If everything looks good, your PR is **automatically merged** and your page goes live in about a minute!
+## Steps
 
-## Your meta.json
+1. **Fork** this repo on GitHub.
+2. Create a folder: `contributions/your-name/` (lowercase, numbers, hyphens only).
+3. Add these two files:
+
+### meta.json
 
 ```json
 {
-  "name": "cool-cat",
-  "location": "Austin, TX"
+  "name": "your-name",
+  "location": "City, Country"
 }
 ```
 
-- `name` (required) — must match your folder name exactly.
-- `location` (optional) — any place name as text, e.g. `"Tokyo, Japan"`. If provided, you get a pin on the map!
+- `name` (required) — must match your folder name exactly
+- `location` (optional) — free text. Add it if you want a pin on the map
 
-## What you can put in page.html
+### page.html
+
+Your page content. Start from this if you want:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>your-name</title>
+</head>
+<body>
+  <h1>Hello!</h1>
+  <p>Your content here.</p>
+</body>
+</html>
+```
+
+4. **Open a Pull Request** to `main`.
+5. Wait for the **validate-pr** check to pass — the bot merges it automatically.
+
+Your page should be live within about a minute.
+
+## Allowed
 
 - Headings, paragraphs, lists, tables
-- Images using **data URIs** only (no links to external websites)
-- Basic HTML formatting (`<b>`, `<i>`, `<em>`, etc.)
+- Basic HTML tags (`<b>`, `<i>`, `<em>`, etc.)
+- Images as **data URIs** only (embedded in the HTML)
 
-## What is NOT allowed
+## Not allowed
 
-- JavaScript (`<script>`, click handlers, etc.)
-- External links or resources (no `https://` images, fonts, or stylesheets)
-- `<iframe>`, `<style>` blocks, `<object>`, `<embed>`
-- Files other than `page.html` and `meta.json`
-- More than **20 KB** total for your folder
+- JavaScript (`<script>`, `onclick=`, `javascript:` URLs, etc.)
+- External resources (no `https://` images, fonts, stylesheets, or links)
+- `<iframe>`, `<style>`, `<object>`, `<embed>`
+- Any files besides `page.html` and `meta.json`
+- More than **20 KB** per folder
+- Editing someone else's folder — one contribution per PR
 
 ## Tips
 
-- Pick a **unique folder name** — if someone already used it, choose another.
-- One person per PR — only change your own folder.
-- Keep it friendly! Inappropriate content may be removed.
+- Pick a **unique folder name** before you start
+- Keep it friendly
+- No location in `meta.json` = no map pin, but you still appear in Explore
 
-## Need help?
+## Something went wrong?
 
-Open an issue on GitHub or check the main [README](README.md) for more details.
+Check the error message on your PR. Common fixes:
+- Folder name doesn't match `"name"` in `meta.json`
+- Accidentally included a `<script>` tag or external URL
+- Folder is too big (keep it under 20 KB)
+
+Open a GitHub issue if you're stuck.
 
 Happy building!
