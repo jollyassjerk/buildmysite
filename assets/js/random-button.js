@@ -1,4 +1,4 @@
-const DATA_BASE = '/dist';
+const DATA_BASE = sitePath('dist');
 
 async function fetchIndex() {
   const res = await fetch(`${DATA_BASE}/index.json`);
@@ -22,7 +22,7 @@ function ensureRandomButton() {
         return;
       }
       const entry = index[Math.floor(Math.random() * index.length)];
-      window.location.href = `/view.html?c=${encodeURIComponent(entry.slug)}`;
+      window.location.href = siteHref(`view.html?c=${encodeURIComponent(entry.slug)}`);
     } catch {
       alert('Could not load contributions.');
     }

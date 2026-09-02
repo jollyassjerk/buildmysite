@@ -1,4 +1,4 @@
-const DATA_BASE = '/dist';
+const DATA_BASE = sitePath('dist');
 const PAGE_SIZE = 24;
 
 let allEntries = [];
@@ -36,7 +36,7 @@ async function initExplore() {
       for (const entry of slice) {
         const tile = document.createElement('a');
         tile.className = 'explore-tile';
-        tile.href = `/view.html?c=${encodeURIComponent(entry.slug)}`;
+        tile.href = siteHref(`view.html?c=${encodeURIComponent(entry.slug)}`);
 
         const label = document.createElement('div');
         label.className = 'explore-tile-label';

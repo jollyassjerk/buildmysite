@@ -1,4 +1,4 @@
-const DATA_BASE = '/dist';
+const DATA_BASE = sitePath('dist');
 
 async function initMap() {
   const mapEl = document.getElementById('map');
@@ -22,7 +22,7 @@ async function initMap() {
     for (const pin of pins) {
       const marker = L.marker([pin.lat, pin.lng]).addTo(map);
       marker.bindPopup(
-        `<a href="/view.html?c=${encodeURIComponent(pin.slug)}">${escapeHtml(pin.name)}</a>`
+        `<a href="${siteHref(`view.html?c=${encodeURIComponent(pin.slug)}`)}">${escapeHtml(pin.name)}</a>`
       );
       bounds.push([pin.lat, pin.lng]);
     }

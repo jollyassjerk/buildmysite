@@ -1,4 +1,4 @@
-const DATA_BASE = '/dist';
+const DATA_BASE = sitePath('dist');
 const GOATCOUNTER_TOTAL = 'https://terpinedream.goatcounter.com/counter/TOTAL.json';
 
 async function fetchIndex() {
@@ -12,7 +12,6 @@ async function getVisitorCount() {
     const res = await fetch(GOATCOUNTER_TOTAL);
     if (!res.ok) return '—';
     const data = await res.json();
-    // GoatCounter returns strings like "1,234"
     return data.count || data.count_unique || '—';
   } catch {
     return '—';

@@ -52,6 +52,7 @@ jobs:
           cp -r dist/* _site/
           cp index.html explore.html view.html _site/
           cp -r assets _site/
+          touch _site/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

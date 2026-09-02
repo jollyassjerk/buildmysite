@@ -1,4 +1,4 @@
-const DATA_BASE = '/dist';
+const DATA_BASE = sitePath('dist');
 
 function getSlug() {
   const params = new URLSearchParams(window.location.search);
