@@ -26,10 +26,22 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Wait for merge to land on main
+        if: github.event_name == 'workflow_run'
+        run: sleep 15
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0
+
+      - name: Sync latest main
+        if: github.event_name == 'workflow_run'
+        run: git pull origin main
+
+      - name: List contributions
+        run: find contributions -type f | sort || true
 
       - name: Setup Node
         uses: actions/setup-node@v4

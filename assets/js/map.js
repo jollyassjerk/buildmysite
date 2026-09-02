@@ -1,4 +1,4 @@
-import { DATA_BASE, escapeHtml, siteHref } from './site.js';
+import { fetchPins, escapeHtml, siteHref } from './site.js';
 
 async function initMap() {
   const mapEl = document.getElementById('map');
@@ -19,9 +19,7 @@ async function initMap() {
   setTimeout(() => map.invalidateSize(), 100);
 
   try {
-    const res = await fetch(`${DATA_BASE}/pins.json`);
-    if (!res.ok) return;
-    const pins = await res.json();
+    const pins = await fetchPins();
 
     if (pins.length === 0) return;
 

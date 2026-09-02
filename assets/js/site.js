@@ -9,10 +9,19 @@ export function siteHref(relativePath) {
 
 export const DATA_BASE = sitePath('dist');
 
-export async function fetchIndex() {
-  const res = await fetch(`${DATA_BASE}/index.json`);
-  if (!res.ok) throw new Error('Failed to load index.json');
+async function fetchJson(path) {
+  const url = `${DATA_BASE}/${path}?_=${Date.now()}`;
+  const res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok) throw new Error(`Failed to load ${path}`);
   return res.json();
+}
+
+export async function fetchIndex() {
+  return fetchJson('index.json');
+}
+
+export async function fetchPins() {
+  return fetchJson('pins.json');
 }
 
 export function escapeHtml(str) {

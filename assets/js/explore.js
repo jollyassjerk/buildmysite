@@ -1,4 +1,4 @@
-import { DATA_BASE, siteHref } from './site.js';
+import { DATA_BASE, fetchIndex, siteHref } from './site.js';
 
 const PAGE_SIZE = 24;
 
@@ -14,9 +14,7 @@ async function initExplore() {
   if (!grid) return;
 
   try {
-    const res = await fetch(`${DATA_BASE}/index.json`);
-    if (!res.ok) throw new Error('Failed to load');
-    allEntries = await res.json();
+    allEntries = await fetchIndex();
   } catch {
     grid.innerHTML = '<p class="view-error">Could not load contributions.</p>';
     return;

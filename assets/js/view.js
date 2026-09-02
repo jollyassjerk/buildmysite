@@ -1,4 +1,4 @@
-import { DATA_BASE, escapeHtml } from './site.js';
+import { DATA_BASE, escapeHtml, fetchIndex } from './site.js';
 
 function getSlug() {
   const params = new URLSearchParams(window.location.search);
@@ -20,9 +20,7 @@ async function initView() {
   }
 
   try {
-    const res = await fetch(`${DATA_BASE}/index.json`);
-    if (!res.ok) throw new Error('Failed to load index');
-    const index = await res.json();
+    const index = await fetchIndex();
     const entry = index.find((e) => e.slug === slug);
 
     if (!entry) {
