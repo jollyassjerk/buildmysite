@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore — Build My Site</title>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div class="marquee-bar" aria-hidden="true">
+    <div class="marquee-inner" id="marquee-content">
+      <span>Loading…</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <h1>Explore Contributions</h1>
+    <p>Browse every page the community has added.</p>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/explore.html">Explore</a>
+      <a href="https://github.com/pushthis/buildmysite/blob/main/CONTRIBUTING.md">How to contribute</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="explore-controls">
+      <button id="prev-page" type="button" disabled>← Previous</button>
+      <span id="page-info">Page 1</span>
+      <button id="next-page" type="button" disabled>Next →</button>
+    </div>
+    <div class="explore-grid" id="explore-grid"></div>
+  </main>
+
+  <script src="/assets/js/marquee.js"></script>
+  <script src="/assets/js/random-button.js"></script>
+  <script src="/assets/js/explore.js"></script>
+</body>
+</html>
