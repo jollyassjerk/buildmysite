@@ -11,6 +11,9 @@ async function initMap() {
     maxZoom: 18,
   }).addTo(map);
 
+  // Fix blank map if layout wasn't ready at init time
+  setTimeout(() => map.invalidateSize(), 100);
+
   try {
     const res = await fetch(`${DATA_BASE}/pins.json`);
     if (!res.ok) return;
