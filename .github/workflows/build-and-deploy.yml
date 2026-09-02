@@ -3,6 +3,10 @@ name: Build and Deploy
 on:
   push:
     branches: [main]
+  # Merges via GITHUB_TOKEN (automerge-action) do not fire push events
+  workflow_run:
+    workflows: ["Auto Merge"]
+    types: [completed]
 
 concurrency:
   group: pages
@@ -17,12 +21,15 @@ jobs:
   build:
     name: build-and-deploy
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Node
         uses: actions/setup-node@v4
