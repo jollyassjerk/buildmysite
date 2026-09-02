@@ -8,30 +8,17 @@
   <script data-goatcounter="https://terpinedream.goatcounter.com/count"
           async src="https://gc.zgo.at/count.js"></script>
 </head>
-<body>
-  <div class="marquee-bar" aria-hidden="true">
-    <div class="marquee-inner" id="marquee-content">
-      <span>Loading…</span>
-    </div>
+<body class="view-page">
+  <div id="view-content">
+    <p class="view-error">Loading…</p>
   </div>
 
-  <header class="site-header">
-    <h1>Build My Site</h1>
-    <nav class="site-nav">
-      <a href="index.html">Home</a>
-      <a href="explore.html">Explore</a>
-      <a href="https://github.com/pushthis/buildmysite/blob/main/CONTRIBUTING.md">How to contribute</a>
-    </nav>
-  </header>
+  <nav class="view-floating-nav" aria-label="Page navigation">
+    <a href="index.html" class="floating-button">Home</a>
+    <button type="button" id="random-page-btn" class="floating-button">Random Page</button>
+  </nav>
 
-  <main>
-    <div id="view-content">
-      <p class="view-error">Loading…</p>
-    </div>
-  </main>
-
-  <script type="module" src="assets/js/marquee.js?v=5"></script>
-  <script type="module" src="assets/js/random-button.js?v=5"></script>
-  <script type="module" src="assets/js/view.js?v=5"></script>
+  <script type="module" src="assets/js/random-button.js?v=6"></script>
+  <script type="module" src="assets/js/view.js?v=6"></script>
 </body>
 </html>

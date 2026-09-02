@@ -1,13 +1,19 @@
 import { fetchIndex, siteHref } from './site.js';
 
 function ensureRandomButton() {
-  if (document.getElementById('random-page-btn')) return;
+  let btn = document.getElementById('random-page-btn');
+  if (!btn) {
+    btn = document.createElement('button');
+    btn.id = 'random-page-btn';
+    btn.type = 'button';
+    btn.className = 'floating-button';
+    btn.textContent = 'Random Page';
+    document.body.appendChild(btn);
+  }
 
-  const btn = document.createElement('button');
-  btn.id = 'random-page-btn';
-  btn.type = 'button';
-  btn.className = 'random-button';
-  btn.textContent = '🎲 Random Page';
+  if (btn.dataset.bound) return;
+  btn.dataset.bound = 'true';
+
   btn.addEventListener('click', async () => {
     try {
       const index = await fetchIndex();
@@ -21,7 +27,6 @@ function ensureRandomButton() {
       alert('Could not load contributions.');
     }
   });
-  document.body.appendChild(btn);
 }
 
 ensureRandomButton();

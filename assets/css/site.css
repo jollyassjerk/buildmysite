@@ -179,6 +179,71 @@ main {
   color: var(--muted);
 }
 
+body.view-page {
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+}
+
+body.view-page #view-content {
+  position: fixed;
+  inset: 0;
+}
+
+body.view-page .view-frame-wrap {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  background: #fff;
+}
+
+body.view-page .view-frame-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+body.view-page .view-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+}
+
+.view-floating-nav {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.floating-button {
+  background: var(--accent);
+  color: #0f1117;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: background 0.15s, transform 0.15s;
+  text-decoration: none;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.floating-button:hover {
+  background: var(--accent-hover);
+  transform: scale(1.04);
+  color: #0f1117;
+}
+
 .view-frame-wrap {
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -199,24 +264,9 @@ main {
   text-align: center;
 }
 
-.random-button {
+body:not(.view-page) > .floating-button {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 1000;
-  background: var(--accent);
-  color: #0f1117;
-  border: none;
-  border-radius: 999px;
-  padding: 0.75rem 1.25rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  transition: background 0.15s, transform 0.15s;
-}
-
-.random-button:hover {
-  background: var(--accent-hover);
-  transform: scale(1.04);
 }

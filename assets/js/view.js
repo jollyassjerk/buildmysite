@@ -30,15 +30,7 @@ async function initView() {
 
     document.title = `${entry.name} — Build My Site`;
 
-    const locationHtml = entry.location
-      ? `<p>${escapeHtml(entry.location)}</p>`
-      : '';
-
     container.innerHTML = `
-      <div class="view-meta">
-        <h2>${escapeHtml(entry.name)}</h2>
-        ${locationHtml}
-      </div>
       <div class="view-frame-wrap">
         <iframe
           sandbox=""
