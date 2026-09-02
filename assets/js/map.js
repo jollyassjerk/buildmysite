@@ -4,6 +4,11 @@ async function initMap() {
   const mapEl = document.getElementById('map');
   if (!mapEl) return;
 
+  if (typeof L === 'undefined') {
+    mapEl.innerHTML = '<p class="view-error">Map failed to load. Check your network or ad blocker.</p>';
+    return;
+  }
+
   const map = L.map('map').setView([20, 0], 2);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
