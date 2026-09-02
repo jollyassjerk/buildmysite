@@ -1,5 +1,3 @@
-const DATA_BASE = sitePath('dist');
-
 async function fetchIndex() {
   const res = await fetch(`${DATA_BASE}/index.json`);
   if (!res.ok) throw new Error('Failed to load index.json');

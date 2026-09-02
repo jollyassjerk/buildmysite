@@ -1,4 +1,3 @@
-const DATA_BASE = sitePath('dist');
 const PAGE_SIZE = 24;
 
 let allEntries = [];

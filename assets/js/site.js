@@ -7,3 +7,5 @@ window.siteHref = function siteHref(relativePath) {
   const url = new URL(relativePath, document.baseURI);
   return url.pathname + url.search + url.hash;
 };
+
+window.DATA_BASE = window.sitePath('dist');

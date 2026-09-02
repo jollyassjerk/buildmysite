@@ -1,4 +1,3 @@
-const DATA_BASE = sitePath('dist');
 const GOATCOUNTER_TOTAL = 'https://terpinedream.goatcounter.com/counter/TOTAL.json';
 
 async function fetchIndex() {

@@ -1,5 +1,3 @@
-const DATA_BASE = sitePath('dist');
-
 async function initMap() {
   const mapEl = document.getElementById('map');
   if (!mapEl) return;
